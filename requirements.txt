@@ -1,7 +1,6 @@
 docx==0.2.4
 Faker==8.8.1
-ffmpeg==1.4
-ffmpeg_python==0.2.0
+ffmpeg-python==0.2.0
 openpyxl==3.0.10
 Pillow==9.3.0
 python_docx==0.8.11

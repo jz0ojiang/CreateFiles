@@ -2,3 +2,4 @@
 /output/
 /tm/
 /videodata/*
+__pycache__/

@@ -39,7 +39,7 @@ def generate(gver, path, filetype, count):
         
     if filetype == "random":
         for _ in range(count):
-            generate(gver, path, random.choice(["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf"]), 1)
+            generate(gver, path, random.choice(["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4"]), 1)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
