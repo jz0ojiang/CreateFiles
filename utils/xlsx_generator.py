@@ -5,6 +5,7 @@ import random
 
 from utils.utils import get_flag
 from utils import png_generator, jpg_generator
+from utils.flags import flags
 
 fake = Faker()
 
@@ -13,15 +14,16 @@ def generate_xlsx_file(path):
         os.makedirs(path)
     if not os.path.exists("./temp/"):
         os.makedirs("./temp/")
-    filename = fake.name().replace(" ", "_") + ".xlsx"
+    filename = fake.name().replace(" ", "_") + f"_{random.randint(1000,9999)}" + ".xlsx"
+    flag = get_flag()
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.title = "Sheet1"
     insert_path = ""
     if random.randint(0, 1):
-        ws['A1'] = get_flag()
+        ws['A1'] = flag
     else:
-        insert_path = random.choice([
+        insert_path, flag = random.choice([
             png_generator.generate_png_file,
             jpg_generator.generate_jpg_file
         ])("./temp/")
@@ -31,8 +33,8 @@ def generate_xlsx_file(path):
     wb.save(os.path.join(path, filename))
     if insert_path:
         os.remove(insert_path)
-    return os.path.join(path, filename)
+    return os.path.join(path, filename), flag
 
 def generate_xlsx_files(path, count):
     for _ in range(count):
-        generate_xlsx_file(path)
+        flags.add(generate_xlsx_file(path))

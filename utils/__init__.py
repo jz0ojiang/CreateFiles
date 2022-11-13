@@ -8,7 +8,9 @@ import utils.xls_generator
 import utils.xlsx_generator
 import utils.pdf_generator
 import utils.mp4_generator
+import utils.flags
 
+flags = utils.flags.flags
 
 txt_generator = utils.txt_generator
 docx_generator = utils.docx_generator

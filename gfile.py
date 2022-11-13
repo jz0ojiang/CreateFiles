@@ -41,6 +41,10 @@ def generate(gver, path, filetype, count):
         for _ in range(count):
             generate(gver, path, random.choice(["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4"]), 1)
 
+    if filetype == "all":
+        for typ in ["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4"]:
+            generate(gver, path, typ, count)
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python3 gfile.py <path> [count] [filetype] [generator-version]")
@@ -60,6 +64,8 @@ if __name__ == "__main__":
         sys.exit(1)
     
     generate(gver, path, filetype, count)
+    
+    utils.flags.print()
     
     
     
