@@ -36,19 +36,22 @@ def generate(gver, path, filetype, count):
         
     if filetype == "mp4":
         utils.mp4_generator.generate_mp4_files(path, count)
-        
+    
+    if filetype == "gif":
+        utils.gif_generator.generate_gif_files(path, count)
+    
     if filetype == "random":
         for _ in range(count):
-            generate(gver, path, random.choice(["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4"]), 1)
+            generate(gver, path, random.choice(["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4", "gif"]), 1)
 
     if filetype == "all":
-        for typ in ["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4"]:
+        for typ in ["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4", "gif"]:
             generate(gver, path, typ, count)
             
     if filetype == "fast":
         # ignore doc and mp4
         for _ in range(count):
-            generate(gver, path, random.choice(["txt", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf"]), 1)
+            generate(gver, path, random.choice(["txt", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "gif"]), 1)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

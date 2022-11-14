@@ -14,14 +14,14 @@ fontpath = "./fonts/NotoSansSC-Regular.otf"
 def generate_mp4_file(path):
     if not os.path.exists(path):
         os.makedirs(path)
-    # 随机读取 ./videodata/ 下的一个视频文件
-    video = random.choice(os.listdir("./videodata/"))
+    # 随机读取 ./source/video/ 下的一个视频文件
+    video = random.choice(os.listdir("./source/video/"))
     filename = fake.name().replace(" ", "_") + f"_{random.randint(1000,9999)}" + ".mp4"
     # 生成随机水印文字
     watermark = get_flag()
     # 生成水印视频
     (
-        ffmpeg.input(os.path.join("./videodata/", video))
+        ffmpeg.input(os.path.join("./source/video/", video))
         .output(
             os.path.join(path, filename),
             vf=f"drawtext=fontfile={fontpath}: text='{watermark}':y=line_h:x=line_h:fontsize=h/10:fontcolor=white:shadowy=2",
