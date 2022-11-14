@@ -45,6 +45,14 @@ python3 gfile.py <path> [count] [filetype] [generator-version]
 
 - 2 : 生成的文件将在 指定路径/文件类型/ 下存储
 
+## souce
+
+如果需要使用生成 mp4/gif 文件的功能，需要在 ./source/video/ 下放入视频文件， 在 ./source/gif/ 下放入 gif 文件
+
+文件名没有要求，但是必须保证文件类型无误
+
+mp4/gif 的文件生成原理是随机选取一个文件，添加flag水印，生成新的文件
+
 ## 输出
 
 生成结束后，会在终端输出生成文件的路径与flag
