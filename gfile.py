@@ -44,6 +44,11 @@ def generate(gver, path, filetype, count):
     if filetype == "all":
         for typ in ["txt", "doc", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf", "mp4"]:
             generate(gver, path, typ, count)
+            
+    if filetype == "fast":
+        # ignore doc and mp4
+        for _ in range(count):
+            generate(gver, path, random.choice(["txt", "docx", "png", "jpg", "zip", "xls", "xlsx", "pdf"]), 1)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
