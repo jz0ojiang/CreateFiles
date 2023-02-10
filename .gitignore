@@ -1,5 +1,8 @@
 /temp/
 /output/
 /tm/
-/source/*
+/source/gif/*
+/source/video/*
+!/source/gif/.gitkeep
+!/source/video/.gitkeep
 __pycache__/
