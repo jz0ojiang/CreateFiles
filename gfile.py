@@ -4,7 +4,7 @@ import random
 import utils
 
 def generate(gver, path, filetype, count):
-    if gver == "2" and filetype != "random":
+    if gver == "2" and filetype not in ["random", "fast", "all"]:
         path = os.path.join(path, filetype.upper())
     
     if filetype == "txt":
